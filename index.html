@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Alegría del hogar — Impatiens walleriana</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg1:#dff7e0;--bg2:#c7f0ff;--card:#ffffffcc;--muted:#556}
+    *{box-sizing:border-box}
+    body{font-family:Inter,system-ui,Segoe UI,Roboto,Arial; margin:0; min-height:100vh; color:var(--muted); background:linear-gradient(180deg,var(--bg1),var(--bg2)); overflow-x:hidden}
+
+    /* Animated garden background */
+    .garden {
+      position:fixed; inset:0; z-index:0; pointer-events:none; overflow:hidden;
+      background-image: radial-gradient(circle at 10% 20%, rgba(255,255,255,0.25) 0%, transparent 8%),
+                        radial-gradient(circle at 80% 80%, rgba(255,255,255,0.18) 0%, transparent 9%);
+    }
+    .sun{position:absolute; right:8%; top:6%; width:120px; height:120px; border-radius:50%; filter:blur(12px); background: radial-gradient(circle,#fff7b2,#ffd166); opacity:0.9; transform:translateY(-10px); animation: bob 8s ease-in-out infinite}
+    @keyframes bob{0%{transform:translateY(-6px)}50%{transform:translateY(6px)}100%{transform:translateY(-6px)}}
+
+    /* floating petals */
+    .petal{position:absolute; width:18px; height:28px; background:linear-gradient(180deg,#ffb3c6,#ff6b8a); border-radius:50% 50% 40% 40%; opacity:0.9; transform:rotate(15deg); animation: floatPetal linear infinite}
+    .petal:nth-child(1){left:8%; top:40%; animation-duration:12s; animation-delay:0s}
+    .petal:nth-child(2){left:25%; top:10%; animation-duration:16s; animation-delay:2s}
+    .petal:nth-child(3){left:60%; top:25%; animation-duration:14s; animation-delay:4s}
+    .petal:nth-child(4){left:80%; top:50%; animation-duration:18s; animation-delay:1s}
+    @keyframes floatPetal{0%{transform:translateY(0) rotate(0) scale(1)}50%{transform:translateY(40vh) rotate(120deg) scale(.9); opacity:.7}100%{transform:translateY(80vh) rotate(240deg) scale(.8); opacity:0}}
+
+    /* grass */
+    .ground{position:fixed; left:0; right:0; bottom:0; height:180px; z-index:0; background:linear-gradient(180deg,#7dd56f, #4fb84a); box-shadow:inset 0 20px 40px rgba(0,0,0,0.08)}
+    .grass:before{content:''; position:absolute; left:0; right:0; top:-40px; height:60px; background:repeating-linear-gradient(90deg, rgba(255,255,255,0.02) 0 10px, transparent 10px 20px); opacity:.2}
+
+    /* Page content */
+    .container{position:relative; max-width:1000px; margin:48px auto; padding:36px; z-index:2}
+    header{display:flex; gap:18px; align-items:center}
+    .heroCard{background:var(--card); border-radius:16px; padding:22px; box-shadow:0 10px 30px rgba(34,50,10,0.06); display:flex; gap:18px; align-items:center}
+    .plantThumb{width:150px; height:150px; border-radius:12px; background:linear-gradient(180deg,#fff,#ffe8f0); display:flex; align-items:center; justify-content:center; overflow:hidden; box-shadow:0 8px 18px rgba(0,0,0,0.06)}
+    .plantThumb svg{width:120%; height:120%; transform:translateY(6px)}
+    h1{margin:0; font-size:24px; color:#27413a}
+    p.lead{margin:6px 0 0; color:#446; font-size:14px}
+
+    main{margin-top:20px; display:grid; grid-template-columns:1fr 320px; gap:20px}
+    .card{background:var(--card); border-radius:12px; padding:18px; box-shadow:0 8px 20px rgba(20,40,10,0.04)}
+    h2{margin:0 0 8px 0; color:#233}
+    ul{margin:8px 0 0 18px}
+    .sidebar .fact{margin-bottom:12px}
+
+    footer{margin-top:20px; text-align:center; color:#3b4; opacity:.8}
+
+    /* small screens */
+    @media (max-width:880px){main{grid-template-columns:1fr} .plantThumb{display:none}}
+  </style>
+</head>
+<body>
+  <div class="garden" aria-hidden="true">
+    <div class="sun"></div>
+    <div class="petal"></div>
+    <div class="petal"></div>
+    <div class="petal"></div>
+    <div class="petal"></div>
+  </div>
+
+  <div class="container">
+    <header class="heroCard">
+      <div class="plantThumb" title="Ilustración de Impatiens">
+        <!-- simple stylized flower -->
+        <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <g transform="translate(60,60)">
+            <ellipse rx="34" ry="18" fill="#ff6b8a" transform="rotate(-20)"/>
+            <ellipse rx="34" ry="18" fill="#ff92ab" transform="rotate(40)"/>
+            <ellipse rx="34" ry="18" fill="#ffc1d1" transform="rotate(100)"/>
+            <circle r="10" fill="#fff1c6" />
+          </g>
+        </svg>
+      </div>
+      <div>
+        <h1>Alegría del hogar <small style="font-weight:600;color:#4a6;display:block">(Impatiens walleriana)</small></h1>
+        <p class="lead">Planta ornamental apreciada por su floración abundante y colores vibrantes. Ideal para macetas, bordes de jardín y espacios semisombreados.</p>
+      </div>
+    </header>
+
+    <main>
+      <section>
+        <article class="card">
+          <h2>Descripción</h2>
+          <p>La <strong>Alegría del hogar</strong> (Impatiens walleriana) es una planta herbácea perenne en climas tropicales, cultivada como anual en zonas templadas. Destaca por su intensa floración, hojas suaves y tallos carnosos. Su estructura compacta permite que luzca incluso en espacios reducidos.</p>
+          <div class="jardin_al.jpg" style="width:100%;height:150px;background:#eee;border-radius:8px;margin:10px 0;text-align:center;line-height:150px;color:#777">Imagen aquí</div>
+
+          <p>A diferencia de otras plantas ornamentales, la Impatiens puede florecer casi todo el año si se mantiene con humedad constante y luz filtrada. Por esto se ha convertido en una de las plantas favoritas para interiores luminosos y jardines sombreados.</p>
+          <div class="alegria_pena.jpg" style="width:100%;height:150px;background:#eee;border-radius:8px;margin:10px 0;text-align:center;line-height:150px;color:#777">Imagen aquí</div>
+
+          <h2>Datos rápidos</h2>
+          <ul>
+            <li><strong>Nombre científico:</strong> <em>Impatiens walleriana</em>.</li>
+            <li><strong>Familia:</strong> Balsaminaceae.</li>
+            <li><strong>Origen:</strong> África oriental (Kenya—Mozambique) y hoy ampliamente cultivada como ornamental.</li>
+            <li><strong>Altura aproximada:</strong> 15–60 cm según variedad y condiciones.</li>
+          </ul>
+
+          <h2>Cuidados básicos</h2>
+          <ul>
+            <li><strong>Luz:</strong> media sombra o sombra brillante. Tolera interiores siempre que reciba luz difusa; el sol directo fuerte quema hojas y pétalos.</li>
+            <li><strong>Riego:</strong> requiere humedad constante. El sustrato debe mantenerse húmedo, pero no encharcado. En épocas calurosas puede necesitar riegos diarios.</li>
+            <li><strong>Sustrato:</strong> mezcla de tierra negra, turba y perlita para asegurar retención de agua sin perder aireación.</li>
+            <div class="ept_flor.jpg" style="width:100%;height:150px;background:#eee;border-radius:8px;margin:10px 0;text-align:center;line-height:150px;color:#777">Imagen aquí</div>
+            <li><strong>Temperatura:</strong> ideal entre 18°C y 26°C. No soporta frío extremo ni corrientes heladas.</li>
+            <li><strong>Propagación:</strong> se multiplica fácilmente por esquejes. Basta cortar un tallo sano, colocarlo en agua o sustrato húmedo y enraíza en pocos días.</li>
+          </ul>
+
+          <h2>Usos y consejos</h2>
+          <p>La Alegría del hogar es una de las mejores opciones para jardines sombreados, balcones frescos y macetas interiores. Su capacidad de florecer continuamente le da un valor decorativo excepcional.</p>
+          <div class="flor_2.jpg" style="width:100%;height:150px;background:#eee;border-radius:8px;margin:10px 0;text-align:center;line-height:150px;color:#777">Imagen aquí</div>
+
+          <p>Para mantener una floración abundante, es recomendable retirar las flores marchitas y aplicar un fertilizante específico para floración cada 4–6 semanas. En ambientes secos conviene rociar ligeramente alrededor (no sobre las flores) para aumentar la humedad ambiental.</p>
+          <div class="alegria_del_hogar.jpg" style="width:100%;height:150px;background:#eee;border-radius:8px;margin:10px 0;text-align:center;line-height:150px;color:#777">Imagen aquí</div>
+
+          <ul>
+            <li>Excelente para macetas colgantes y borduras.</li>
+            <li>Útil para dar color a zonas donde otras plantas no florecen por falta de sol.</li>
+          </ul>
+        </article>
+      </section>
+
+      <aside class="sidebar">
+        <div class="card">
+          <h2>Ficha rápida</h2>
+          <div class="fact"><strong>Floración:</strong> casi todo el año en condiciones favorables.</div>
+          <div class="fact"><strong>Exposición:</strong> semisombra.</div>
+          <div class="fact"><strong>Riego:</strong> moderado-alto.</div>
+          <div class="fact"><strong>Ideal para:</strong> balcones, ventanas y jardinería de sombra.</div>
+        </div>
+
+        <div class="card" style="margin-top:12px">
+          <h2>¿Quieres más?</h2>
+          <p>Si quieres, puedo exportar esta página como archivo HTML para que la descargues, o añadir fotos reales, enlaces y un formulario de contacto.</p>
+          <button id="downloadBtn" style="margin-top:8px;padding:8px 12px;border-radius:8px;border:0;background:#4caf7a;color:white;cursor:pointer">Descargar HTML</button>
+        </div>
+      </aside>
+    </main>
+
+    <footer>
+      Hecho por Junior Vera Figueroa Acomayo chinchao imagenes con derecho de autor propio  · Información básica sobre <em>Impatiens walleriana</em>.
+    </footer>
+  </div>
+
+  <div class="ground" aria-hidden="true"></div>
+
+  <script>
+    // pequeño script para descargar el HTML actual
+    document.getElementById('downloadBtn').addEventListener('click', function(){
+      const html = '<!doctype html>\n' + document.documentElement.outerHTML;
+      const blob = new Blob([html], {type: 'text/html'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url; a.download = 'alegria_del_hogar_impatiens.html';
+      document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
+    });
+  </script>
+</body>
+</html>
